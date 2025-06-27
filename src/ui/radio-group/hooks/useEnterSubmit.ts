@@ -8,7 +8,6 @@ type UseEnterSubmit = {
 };
 
 export const useEnterSubmit = ({ onChange, option, ref }: UseEnterSubmit) => {
-	
 	useEffect(() => {
 		const optionHtml = ref.current;
 
