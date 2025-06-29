@@ -8,7 +8,6 @@ import { RadioGroup } from 'src/ui/radio-group';
 import { Separator } from 'src/ui/separator';
 
 import { useOutsideClickClose } from './useOutsideClickClose';
-
 import styles from './ArticleParamsForm.module.scss';
 
 import clsx from 'clsx';
