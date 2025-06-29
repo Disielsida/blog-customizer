@@ -21,6 +21,7 @@ import {
 	defaultArticleState,
 	backgroundColors,
 	contentWidthArr,
+	ArtcileStateKey,
 } from 'src/constants/articleProps';
 
 type ArticleParamsFormProps = {
@@ -47,43 +48,11 @@ export const ArticleParamsForm = ({
 		onClose: () => setIsFormOpen(false),
 	});
 
-	const [currentFont, setCurrentFont] = useState(fontFamilyOptions[0]);
-
-	const handleFontChange = (option: OptionType) => {
-		setCurrentFont(option);
-		changeFormState({ ...formState, fontFamilyOption: option });
-	};
-
-	const [currentFontSize, setCurrentFontSize] = useState(fontSizeOptions[0]);
-
-	const handleFontSizeChange = (option: OptionType) => {
-		setCurrentFontSize(option);
-		changeFormState({ ...formState, fontSizeOption: option });
-	};
-
-	const [currentFontColor, setCurrentFontColor] = useState(fontColors[0]);
-
-	const handleFontColorChange = (option: OptionType) => {
-		setCurrentFontColor(option);
-		changeFormState({ ...formState, fontColor: option });
-	};
-
-	const [currentBackgroundColor, setCurrentBackgroundColor] = useState(
-		backgroundColors[0]
-	);
-
-	const handleBackgroundChange = (option: OptionType) => {
-		setCurrentBackgroundColor(option);
-		changeFormState({ ...formState, backgroundColor: option });
-	};
-
-	const [currentContentWidth, setCurrentContentWidth] = useState(
-		contentWidthArr[0]
-	);
-
-	const handleContentWidthChange = (option: OptionType) => {
-		setCurrentContentWidth(option);
-		changeFormState({ ...formState, contentWidth: option });
+	const handleOptionChange = (
+		optionKey: ArtcileStateKey,
+		option: OptionType
+	) => {
+		changeFormState({ ...formState, [optionKey]: option });
 	};
 
 	const handleSubmitForm = () => {
@@ -115,35 +84,45 @@ export const ArticleParamsForm = ({
 					</Text>
 					<Select
 						title='Шрифт'
-						selected={currentFont}
+						selected={formState.fontFamilyOption}
 						options={fontFamilyOptions}
-						onChange={handleFontChange}
+						onChange={(option) =>
+							handleOptionChange(ArtcileStateKey.FontFamily, option)
+						}
 					/>
 					<RadioGroup
 						name='fontSizeGroup'
 						options={fontSizeOptions}
-						selected={currentFontSize}
+						selected={formState.fontSizeOption}
 						title='Размер шрифта'
-						onChange={handleFontSizeChange}
+						onChange={(option) =>
+							handleOptionChange(ArtcileStateKey.FontSize, option)
+						}
 					/>
 					<Select
 						title='Цвет шрифта'
-						selected={currentFontColor}
+						selected={formState.fontColor}
 						options={fontColors}
-						onChange={handleFontColorChange}
+						onChange={(option) =>
+							handleOptionChange(ArtcileStateKey.FontColor, option)
+						}
 					/>
 					<Separator />
 					<Select
 						title='Цвет фона'
-						selected={currentBackgroundColor}
+						selected={formState.backgroundColor}
 						options={backgroundColors}
-						onChange={handleBackgroundChange}
+						onChange={(option) =>
+							handleOptionChange(ArtcileStateKey.BackgroundColor, option)
+						}
 					/>
 					<Select
 						title='Ширина контента'
-						selected={currentContentWidth}
+						selected={formState.contentWidth}
 						options={contentWidthArr}
-						onChange={handleContentWidthChange}
+						onChange={(option) =>
+							handleOptionChange(ArtcileStateKey.ContentWidth, option)
+						}
 					/>
 					<div className={styles.bottomContainer}>
 						<Button

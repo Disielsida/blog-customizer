@@ -177,3 +177,11 @@ export const defaultArticleState = {
 };
 
 export type ArticleStateType = typeof defaultArticleState;
+
+export enum ArtcileStateKey {
+	FontFamily = 'fontFamilyOption',
+	FontSize = 'fontSizeOption',
+	FontColor = 'fontColor',
+	BackgroundColor = 'backgroundColor',
+	ContentWidth = 'contentWidth',
+}
