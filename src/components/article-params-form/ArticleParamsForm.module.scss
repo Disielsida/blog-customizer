@@ -24,6 +24,12 @@
 	padding: 50px 31px;
 	background-color: #ffffff;
 	border-right: 1px solid #000000;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.container_open .form {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .bottomContainer {
