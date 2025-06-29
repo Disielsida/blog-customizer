@@ -28,7 +28,7 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers for testing lib
       working-directory: /tmp/tests-blog-customizer
-      run: npx playwright install --with-deps
+      run: npx playwright install
     - name: Run tests
       run: bash /tmp/tests-blog-customizer/run.sh
     - uses: actions/upload-artifact@v4
