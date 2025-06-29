@@ -21,8 +21,9 @@ export const Option = (props: OptionProps) => {
 
 	const handleChange = () => onChange?.(option);
 
-	useEnterSubmit({ onChange, option });
+	useEnterSubmit({ onChange, option, ref: optionRef });
 
+	// для связи между input и label, чтобы сработал click по label
 	const inputId = `${groupName}_radio_item_with_value__${value}`;
 	const isChecked = value === selected.title;
 
